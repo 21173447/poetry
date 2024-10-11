@@ -4,7 +4,6 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
 
 
-
 const Footer = () => {
   return (
     <section className='h-[30vh] bg-texture  bg-[#251308] grid grid-flow-col place-content-center gap-20   border-[1px] px-11 pt-10 space-y-1 text-white '>
@@ -30,10 +29,6 @@ const Footer = () => {
         <h3  className='  sm:text-[14px]'> Revcive regular up dates with our newsleter</h3>
         <button className=' bg-[#99725a] sm:text-sm text-sm  rounded text-white p-2'>LEARN MORE</button>
       </div>
-
-
-
-
     </section>
 
   )

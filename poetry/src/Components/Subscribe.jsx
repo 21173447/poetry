@@ -1,49 +1,37 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import emailjs from "emailjs-com";
 
 function Subscribe() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
+        
 
-        // Access the API key from environment variables
-        const apiKey = process.env.REACT_APP_INFOBIP_API_KEY;
+        // Set your EmailJS credentials here
+        const serviceId = "service_reid616"; 
+        const templateId = "template_4uf3l0s"; 
+        const userId = "lh5bUkZiLpOPPWKzY"; 
 
-        // Debugging line to check if the API key is defined
-        console.log("API Key:", apiKey);
+        const templateParams = {
+            email: email,  
+        };
 
-        try {
-            const response = await axios.post('https://api.infobip.com/email/1/send', {
-                from: 'tshegofatsononyane009@gmail.com', // Ensure this email is approved in Infobip
-                to: email,
-                subject: 'Subscription Confirmation',
-                text: 'Thank you for subscribing to SecureCloud updates!',
-            }, {
-                headers: {
-                    'Authorization': `App ${apiKey}`, // Use the environment variable here
-                    'Content-Type': 'application/json',
-                },
+        emailjs.send(serviceId, templateId, templateParams, userId)
+            .then((result) => {
+                console.log(result.text);
+                setMessage('Thank you for subscribing! A confirmation email has been sent to your inbox.');
+            }, (error) => {
+                console.log(error.text);
+                setMessage('There was an error sending your email. Please try again.');
             });
-
-            setMessage('Thank you for subscribing! A confirmation email has been sent to your inbox.');
-        } catch (error) {
-            console.error('Error sending email:', error);
-            
-            // Handle different error cases
-            if (error.response) {
-                setMessage('Error sending email: ' + (error.response.data.message || error.response.statusText));
-            } else if (error.request) {
-                setMessage('Error sending email: No response from the server');
-            } else {
-                setMessage('Error sending email: ' + error.message);
-            }
-        }
+      
+        setEmail('');
     };
 
     return (
-        <section className='h-[50vh] bg-[#3f2a1e] bg-texture shadow-2xl bg-opacity-80 flex justify-center items-center'>
+        <section className='h-[50vh]  bg-texture shadow-2xl bg-opacity-80 flex justify-center items-center'>
             <div className='rounded-3xl h-auto shadow-2xl bg-[#2c1c13] lg:p-20 sm:p-10 bg-opacity-60'>
                 <h1 className='text-center text-white text-3xl py-3'>SUBSCRIBE</h1>
                 <div className="grid place-content-center">
