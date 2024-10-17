@@ -23,6 +23,10 @@ function About() {
                                 Welcome to Poetry Zone, a space where words come alive and emotions find their voice.
                                 Whether you're an aspiring poet, a seasoned wordsmith, or simply a lover of verse, Poetry Zone is designed
                                 to celebrate the beauty of poetry in all its forms.
+
+
+
+                                
                             </p>
 
                             <h2 className="my-6 text-2xl tracking-tight text-white sm:text-3xl md:text-4xl">
