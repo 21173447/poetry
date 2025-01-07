@@ -6,18 +6,20 @@ import Poems from './Components/Poems'
 import Quotes from './Components/Quotes'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Subscribe from './Components/Subscribe'
-import About from './Components/About'
+import NavBar from './Components/Navbar'
+
 
 function App() {
   return (
     <Router>
       <>
+      <NavBar/>
         <Hero />
         <Routes>
           <Route path="/" element={<Poems />} />
           <Route path="/explore/:poemId" element={<Explore />} />
         </Routes>
-        <About/>
+
 
         <Quotes />
          <Subscribe/>

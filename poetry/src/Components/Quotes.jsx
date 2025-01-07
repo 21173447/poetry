@@ -13,7 +13,7 @@ const Quotes = () => {
     return (
         <section className="min-h-[50vh] bg-texture sm:min-h-[80vh] lg:min-h-[120vh] pt-10 grid-flow-col place-content-center text-white bg-[#251308] px-4 sm:py-10 sm:px-9 lg:px-44 lg:pt-72 ">
             
-            <div className="pt-2 text-3xl sm:text-4xl text-center">
+            <div className="pt-20 text-3xl sm:text-4xl text-center">
                 <h1>Quotes</h1>
                 <div className="flex justify-center py-2">
                     <hr className="border-[3px] w-20 flex border-white" />
